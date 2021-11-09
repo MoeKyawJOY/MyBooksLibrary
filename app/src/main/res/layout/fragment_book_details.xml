@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="bookViewModel"
+            type="com.example.mybooklibrary.bookdetails.BookDetailsViewModel" />
+
+        />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".bookdetails.BookDetailsFragment">
+
+        <TextView
+            android:id="@+id/txt_book_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Think And Growth Rich"
+            addTitle="@{bookViewModel.book}"/>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/author"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/txt_book_name" />
+
+        <TextView
+            android:id="@+id/textView9"
+            addAuthor="@{bookViewModel.book}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/textView8"
+            tools:text="Nepoean Hill" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/pages"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <TextView
+            android:id="@+id/textView11"
+            addPages="@{bookViewModel.book}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView10"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toTopOf="@+id/textView10"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="125" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/descriptions"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#2196F3"
+            android:text="@string/Update"
+            android:textColor="#212121"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#E91E63"
+            android:text="@string/delete"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_update"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_update"
+            app:layout_constraintTop_toTopOf="@+id/btn_update"
+            android:onClick="@{() -> bookViewModel.onDeleteClicked()}"/>
+
+        <Button
+            android:id="@+id/btn_fav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#9C27B0"
+            android:text="@string/add_to_favourite"
+            app:layout_constraintEnd_toEndOf="@+id/btn_update"
+            app:layout_constraintStart_toStartOf="@+id/btn_update"
+            app:layout_constraintTop_toBottomOf="@+id/btn_update"
+            android:enabled="@{!bookViewModel.bookIsFavourite}"
+            android:onClick="@{() -> bookViewModel.onFavClicked()}"/>
+
+        <Button
+            android:id="@+id/btn_not_fav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#9C27B0"
+            android:text="@string/not_favourite"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_fav"
+            app:layout_constraintEnd_toEndOf="@+id/btn_delete"
+            app:layout_constraintStart_toStartOf="@+id/btn_delete"
+            app:layout_constraintTop_toTopOf="@+id/btn_fav"
+            android:enabled="@{bookViewModel.bookIsFavourite}"
+            android:onClick="@{() -> bookViewModel.onNotFavClicked()}"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="149dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            addDescription="@{bookViewModel.book}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="78dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:lines="3"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            tools:text="This is the descriptons of book" />
+
+        <Button
+            android:id="@+id/btn_read"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#4CAF50"
+            android:text="@string/already_read"
+            app:layout_constraintEnd_toEndOf="@+id/btn_fav"
+            app:layout_constraintStart_toStartOf="@+id/btn_fav"
+            app:layout_constraintTop_toBottomOf="@+id/btn_fav"
+            android:enabled="@{!bookViewModel.bookHasRead}"
+            android:onClick="@{() -> bookViewModel.onReadClicked()}"/>
+
+        <Button
+            android:id="@+id/btn_not_read"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#4CAF50"
+            android:text="@string/not_read"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_read"
+            app:layout_constraintEnd_toEndOf="@+id/btn_not_fav"
+            app:layout_constraintStart_toStartOf="@+id/btn_not_fav"
+            app:layout_constraintTop_toTopOf="@+id/btn_read"
+            android:enabled="@{bookViewModel.bookHasRead}"
+            android:onClick="@{() -> bookViewModel.onNotReadClicked()}"/>
+
+        <TextView
+            android:id="@+id/txt_favourite"
+            setVisibilityWithValue="@{bookViewModel.bookIsFavourite}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="#29B6F6"
+            android:text="@string/favourite"
+            android:textColor="#455A64"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_read"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="#66BB6A"
+            android:text="@string/already_read"
+            android:textColor="#455A64"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/txt_favourite"
+            app:layout_constraintTop_toTopOf="parent"
+            setVisibilityWithValue="@{bookViewModel.bookHasRead}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -5,4 +5,20 @@
     <string name="already_read_books">Already Read Books</string>
     <string name="favourite_books">Favourite Books</string>
     <string name="all_books">All Books</string>
+    <string name="title">Title</string>
+    <string name="author">Author</string>
+    <string name="pages">Pages</string>
+    <string name="descriptions">Descriptions</string>
+    <string name="add">Add</string>
+    <string name="add_book">Add Book</string>
+    <string name="Update">update</string>
+    <string name="delete">Delete</string>
+    <string name="add_to_favourite">Add To Favourite</string>
+    <string name="already_read">Already Read</string>
+    <string name="not_favourite">Not Favourite</string>
+    <string name="not_read">Not Read</string>
+    <string name="update_book">Update Book</string>
+    <string name="favourite">Favourite</string>
+    <string name="book_title">Book Title</string>
+    <string name="book_author">Book Author</string>
 </resources>

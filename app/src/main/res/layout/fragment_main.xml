@@ -38,5 +38,10 @@
             android:id="@+id/btn_read_books"
             style="@style/button_style"
             android:text="@string/already_read_books" />
+
+        <Button
+            android:id="@+id/btn_add_book"
+            style="@style/button_style"
+            android:text="@string/add_book" />
     </LinearLayout>
 </layout>

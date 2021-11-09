@@ -23,15 +23,19 @@ class MainFragment : Fragment() {
         )
 
         binding.btnAllBooks.setOnClickListener {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToAllBooksFragment())
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToAllBooksFragment(ALL_BOOK_KEY))
         }
 
         binding.btnFavBooks.setOnClickListener {
-            // TODO: Add oncliklistner
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToAllBooksFragment(FAVOURITE_BOOK_KEY))
         }
 
         binding.btnReadBooks.setOnClickListener {
-            // TODO: Add oncliklistner
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToAllBooksFragment(ALREADY_READ_BOOK_KEY))
+        }
+
+        binding.btnAddBook.setOnClickListener {
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToAddBookFragment())
         }
 
         return binding.root
