@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/allBooksFragment"
         android:name="com.example.mybooklibrary.allbooks.AllBooksFragment"
-        android:label="AllBooksFragment"
+        android:label="Books"
         tools:layout="@layout/fragment_all_books">
         <action
             android:id="@+id/action_allBooksFragment_to_bookDetailsFragment"
@@ -31,8 +31,8 @@
     <fragment
         android:id="@+id/addBookFragment"
         android:name="com.example.mybooklibrary.addbook.AddBookFragment"
-        android:label="fragment_add_book"
-        tools:layout="@layout/fragment_add_book" >
+        android:label="Add Book"
+        tools:layout="@layout/fragment_add_book">
         <action
             android:id="@+id/action_addBookFragment_to_mainFragment"
             app:destination="@id/mainFragment"
@@ -42,7 +42,7 @@
     <fragment
         android:id="@+id/bookDetailsFragment"
         android:name="com.example.mybooklibrary.bookdetails.BookDetailsFragment"
-        android:label="BookDetailsFragment"
+        android:label="Book Details"
         tools:layout="@layout/fragment_book_details">
         <argument
             android:name="book"
@@ -62,7 +62,7 @@
     <fragment
         android:id="@+id/updateBookFragment"
         android:name="com.example.mybooklibrary.updatebook.UpdateBookFragment"
-        android:label="UpdateBookFragment"
+        android:label="Update Book"
         tools:layout="@layout/fragment_update_book">
         <argument
             android:name="book"
