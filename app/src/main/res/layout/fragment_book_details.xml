@@ -120,8 +120,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_update"
-            app:layout_constraintTop_toTopOf="@+id/btn_update"
-            android:onClick="@{() -> bookViewModel.onDeleteClicked()}"/>
+            app:layout_constraintTop_toTopOf="@+id/btn_update" />
 
         <Button
             android:id="@+id/btn_fav"
